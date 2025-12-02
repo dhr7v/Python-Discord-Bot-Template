@@ -23,7 +23,7 @@ from dotenv import load_dotenv
 # Insert the script directory at the front of sys.path so `from database import ...` works.
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
-from databases import DatabaseManager
+from database import DatabaseManager
 
 load_dotenv()
 
