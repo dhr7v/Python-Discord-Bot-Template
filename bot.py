@@ -23,7 +23,7 @@ from dotenv import load_dotenv
 # Insert the script directory at the front of sys.path so `from database import ...` works.
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
-from database import DatabaseManager
+from databases import DatabaseManager
 
 load_dotenv()
 
@@ -68,7 +68,7 @@ It is recommended to use slash commands and therefore not use prefix commands.
 
 If you want to use prefix commands, make sure to also enable the intent below in the Discord developer portal.
 """
-# intents.message_content = True
+intents.message_content = True
 
 # Setup both of the loggers
 
