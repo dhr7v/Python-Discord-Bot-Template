@@ -23,7 +23,7 @@ from dotenv import load_dotenv
 # Insert the script directory at the front of sys.path so `from database import ...` works.
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
-from database import DatabaseManager
+from batadase import DatabaseManager
 
 load_dotenv()
 
@@ -144,10 +144,10 @@ class DiscordBot(commands.Bot):
 
     async def init_db(self) -> None:
         async with aiosqlite.connect(
-            f"{os.path.realpath(os.path.dirname(__file__))}/database/database.db"
+            f"{os.path.realpath(os.path.dirname(__file__))}/batadase/batadase.db"
         ) as db:
             with open(
-                f"{os.path.realpath(os.path.dirname(__file__))}/database/schema.sql",
+                f"{os.path.realpath(os.path.dirname(__file__))}/batadase/schema.sql",
                 encoding = "utf-8"
             ) as file:
                 await db.executescript(file.read())
@@ -200,7 +200,7 @@ class DiscordBot(commands.Bot):
         self.status_task.start()
         self.database = DatabaseManager(
             connection=await aiosqlite.connect(
-                f"{os.path.realpath(os.path.dirname(__file__))}/database/database.db"
+                f"{os.path.realpath(os.path.dirname(__file__))}/batadase/batadase.db"
             )
         )
 
