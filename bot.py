@@ -19,11 +19,7 @@ from discord.ext import commands, tasks
 from discord.ext.commands import Context
 from dotenv import load_dotenv
 
-# Ensure local packages are importable in different execution environments (Docker, Render)
-# Insert the script directory at the front of sys.path so `from database import ...` works.
-sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
-
-from database import DatabaseManager
+from databases import DatabaseManager
 
 load_dotenv()
 
